@@ -1,0 +1,27 @@
+*{
+    background-color: gainsboro;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.board{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+}
+.square{
+    border: 1px solid black;
+    width: auto;
+    height: auto;
+    padding: 1px;
+
+
+}
