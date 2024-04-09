@@ -1,24 +1,28 @@
+
 *{
     background-color: gainsboro;
     box-sizing: border-box;
 }
 
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: block;
+    width: 100%;
     margin: 0; /* Screen adjust */
     height: 100vh; /* Screen adjust*/
 }
-
+h1{
+    text-align: center;
+}
 .board{
     width: 500px;
     height: 500px;
+    margin: 0 auto; /*Centered Board*/
+
     display: flex;
     flex-wrap: wrap;
     border: 1px solid black;
 }
+
 .row{
  display: flex;
  flex-wrap: nowrap;
@@ -27,7 +31,5 @@ body{
 
 .square{
     border: 1px solid black;
-    width: calc(100% / 16);
-
-
+    width: 100%
 }

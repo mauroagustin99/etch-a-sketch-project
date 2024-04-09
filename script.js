@@ -1,5 +1,5 @@
 const container = document.querySelector('.board');
-const gridSize = 15;
+const gridSize = 2;
 
 for (let i=0; i<(gridSize); i++){
   const row = document.createElement('div');
@@ -12,3 +12,5 @@ for (let i=0; i<(gridSize); i++){
     row.appendChild(square);
   }
 }
+
+document.documentElement.style.setProperty('--')
