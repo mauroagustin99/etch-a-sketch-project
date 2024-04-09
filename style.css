@@ -1,5 +1,6 @@
 *{
     background-color: gainsboro;
+    box-sizing: border-box;
 }
 
 body{
@@ -7,21 +8,26 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin: 0; /* Screen adjust */
+    height: 100vh; /* Screen adjust*/
 }
 
 .board{
     width: 500px;
     height: 500px;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    
+    border: 1px solid black;
 }
+.row{
+ display: flex;
+ flex-wrap: nowrap;
+ width: 100%;
+}
+
 .square{
     border: 1px solid black;
-    width: auto;
-    height: auto;
-    padding: 1px;
+    width: calc(100% / 16);
 
 
 }
