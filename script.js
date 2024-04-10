@@ -1,8 +1,10 @@
 const btn_size = document.querySelector('.size');
 const container = document.querySelector('.board');
 const btn_reset = document.querySelector('.reset');
+const btn_erase = document.querySelector('.eraser');
 let colorPicker = document.querySelector('#color-picker');
 let currentSize = 16;
+
 function createRow() {
   const row = document.createElement('div');
   row.classList.add('row');
@@ -17,10 +19,17 @@ function createSquare() {
 
 function addDrawingListeners(square, isDrawing) {
   color = 'black'; //Default color
+  erase = false;
   colorPicker.addEventListener('change', function (event) {
     color = event.target.value;
     isDrawing.value = false;
+    erase = false;
   });
+
+  btn_erase.onclick = function () {
+    erase = true;
+  };
+
   square.addEventListener('mousedown', () => {
     event.preventDefault(); //Prevent the wrong browser behavior
     isDrawing.value = true;
@@ -30,7 +39,11 @@ function addDrawingListeners(square, isDrawing) {
   });
   square.addEventListener('mousemove', () => {
     if (isDrawing.value) {
-      square.style.backgroundColor = color;
+      if (erase) {
+        square.style.backgroundColor = 'gainsboro';
+      } else {
+        square.style.backgroundColor = color;
+      }
     }
   });
 }
