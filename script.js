@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function () {
+  playground(16); //Initialize
+});
+
 const container = document.querySelector('.board');
 const btn_size = document.querySelector('.size');
 const btn_grid = document.querySelector('.grid-btn');
@@ -6,7 +10,7 @@ const btn_erase = document.querySelector('.eraser');
 
 let colorPicker = document.querySelector('#color-picker');
 let currentSize = 16;
-
+const show_size = document.querySelector('.current-size');
 function createRow() {
   const row = document.createElement('div');
   row.classList.add('row');
@@ -22,14 +26,17 @@ function createSquare() {
 function addDrawingListeners(square, isDrawing) {
   color = 'black'; //Default color
   erase = false;
+  random = false;
   colorPicker.addEventListener('change', function (event) {
     color = event.target.value;
     isDrawing.value = false;
     erase = false;
+    random = false;
   });
 
   btn_erase.onclick = function () {
     erase = true;
+    random = false;
   };
 
   square.addEventListener('mousedown', () => {
@@ -43,6 +50,8 @@ function addDrawingListeners(square, isDrawing) {
     if (isDrawing.value) {
       if (erase) {
         square.style.backgroundColor = 'gainsboro';
+      } else if (random) {
+        square.style.backgroundColor = `hsl(${Math.random() * 360},100%,50%)`;
       } else {
         square.style.backgroundColor = color;
       }
@@ -52,6 +61,8 @@ function addDrawingListeners(square, isDrawing) {
 
 function playground(size) {
   container.innerHTML = '';
+  console.log('Grid Size: ', size);
+  show_size.innerHTML = 'Grid Size: ' + size;
   const isDrawing = { value: false };
 
   for (let i = 0; i < size; i++) {
@@ -68,8 +79,8 @@ function playground(size) {
 }
 
 btn_size.onclick = function () {
-  var size = prompt('What size would you like?');
-  if (!isNaN(size) && parseInt(size) > 0) {
+  var size = prompt('What size would you like? 1-100');
+  if (!isNaN(size) && parseInt(size) > 0 && parseInt(size) < 101) {
     gridSize = parseInt(size);
     playground(gridSize);
   } else {
@@ -96,4 +107,10 @@ btn_grid.onclick = function () {
     gridEnabled = false;
   }
 };
-playground(16); //Initialize
+
+function randomColor() {
+  erase = false;
+  return (random = true);
+}
+
+console.log('random: ' + random);

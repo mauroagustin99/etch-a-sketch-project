@@ -11,13 +11,22 @@
     <section class="playground">
       <section class="control-panel">
         <h2>Options</h2>
-        <button class="btn size">Choose Size</button>
-        <button class="btn grid-btn">Grid</button>
-        <button class="btn reset">Reset</button>
-        <button class="btn eraser">Erase</button>
-        <input id="color-picker" type="color" value="#0000000" />
+        <div class="buttons">
+          <button class="btn size">Choose Size</button>
+          <button class="btn grid-btn">Grid</button>
+          <button class="btn reset">Reset</button>
+          <button class="btn eraser">Erase</button>
+        </div>
+        <div class="color">
+          Choose a color:
+          <input id="color-picker" type="color" value="#0000000" />
+          <button class="btn random" onclick="randomColor()">Random!</button>
+        </div>
       </section>
-      <section class="board"></section>
+      <div class="board-container">
+        <h2 class="current-size"></h2>
+        <section class="board"></section>
+      </div>
     </section>
     <script src="script.js"></script>
   </body>

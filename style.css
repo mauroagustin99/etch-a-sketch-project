@@ -1,55 +1,88 @@
-
-*{
-    background-color: gainsboro;
-    box-sizing: border-box;
+* {
+  font-family: Roboto, sans-serif;
+  background-color: gainsboro;
+  box-sizing: border-box;
 }
 
-body{
-    display: block;
-    width: 100%;
-    margin: 0; /* Screen adjust */
-    height: 100vh; /* Screen adjust*/
+body {
+  display: block;
+  width: 100%;
+  margin: 0; /* Screen adjust */
+  height: 100vh; /* Screen adjust*/
 }
 
-h1{
-    text-align: center;
+h1 {
+  text-align: center;
 }
-.playground{
-display:flex;
-align-items: center;
-justify-content: space-around;
+.playground {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.board {
+  min-width: 600px;
+  max-width: 600px;
+  height: 600px;
+  margin: 0 auto; /*Centered Board*/
 
+  display: flex;
+  flex-wrap: wrap;
+  border: 4px solid #18848e;
+  padding: 2px;
 }
-.board{
-    min-width: 600px;
-    max-width: 600px;
-    height: 600px;
-    margin: 0 auto; /*Centered Board*/
+.control-panel {
+  border: 4px solid #18848e;
+  height: 600px;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-    display: flex;
-    flex-wrap: wrap;
-    border: 4px solid #18848e;
-    padding: 2px;
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
 }
-.control-panel{
-    border: 4px solid #18848e;
-    height: 600px;
-    margin: 20px;
+
+.square {
+  width: 100%;
+}
+.grid {
+  border: 1px solid black;
+}
+
+.btn {
+  width: 150px;
+  padding: 0 16px;
+  margin: 7px 0;
+  border-radius: 2px;
+  background-color: #018786;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  color: #fff;
+  transition: background-color 15ms linear,
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  height: 36px;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: #159090;
+}
+
+.btn:active {
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background-color: #61b4b3;
+}
+
+.buttons,.color{
     display: flex;
     flex-direction: column;
-}
-.row{
- display: flex;
- flex-wrap: nowrap;
- width: 100%;
-}
-
-.square{
-    width: 100%;
-}
-.grid{
-    border: 1px solid black;
-}
-.btn{
-    background-color: aqua;
+    align-items: center;
+    
 }
