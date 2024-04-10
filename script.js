@@ -1,7 +1,8 @@
-const btn_size = document.querySelector('.btn-size');
+const btn_size = document.querySelector('.size');
 const container = document.querySelector('.board');
+const btn_reset = document.querySelector('.reset');
 let colorPicker = document.querySelector('#color-picker');
-
+let currentSize = 16;
 function createRow() {
   const row = document.createElement('div');
   row.classList.add('row');
@@ -48,6 +49,7 @@ function playground(size) {
       addDrawingListeners(square, isDrawing);
     }
   }
+  currentSize = size;
 }
 
 btn_size.onclick = function () {
@@ -58,6 +60,10 @@ btn_size.onclick = function () {
   } else {
     alert('Please enter a valid number.');
   }
+};
+
+btn_reset.onclick = function () {
+  playground(currentSize);
 };
 
 playground(16); //Initialize
