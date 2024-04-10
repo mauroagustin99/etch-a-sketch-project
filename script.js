@@ -1,9 +1,10 @@
 const btn_size = document.querySelector('.btn-size');
 const container = document.querySelector('.board');
+let colorPicker = document.querySelector('#color-picker');
 
-function createRow(rowIndex, size) {
+function createRow() {
   const row = document.createElement('div');
-  row.classList.add('row', `-${rowIndex}`);
+  row.classList.add('row');
   return row;
 }
 
@@ -14,6 +15,10 @@ function createSquare() {
 }
 
 function addDrawingListeners(square, isDrawing) {
+  color = colorPicker.addEventListener('change', function (event) {
+    color = event.target.value;
+  });
+
   square.addEventListener('mousedown', () => {
     isDrawing.value = true;
   });
@@ -22,7 +27,7 @@ function addDrawingListeners(square, isDrawing) {
   });
   square.addEventListener('mousemove', () => {
     if (isDrawing.value) {
-      square.style.backgroundColor = 'black';
+      square.style.backgroundColor = color;
     }
   });
 }
@@ -32,7 +37,7 @@ function playground(size) {
   const isDrawing = { value: false };
 
   for (let i = 0; i < size; i++) {
-    const row = createRow(i, size);
+    const row = createRow();
     container.appendChild(row);
 
     for (let j = 0; j < size; j++) {
