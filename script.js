@@ -1,7 +1,9 @@
-const btn_size = document.querySelector('.size');
 const container = document.querySelector('.board');
+const btn_size = document.querySelector('.size');
+const btn_grid = document.querySelector('.grid-btn');
 const btn_reset = document.querySelector('.reset');
 const btn_erase = document.querySelector('.eraser');
+
 let colorPicker = document.querySelector('#color-picker');
 let currentSize = 16;
 
@@ -79,4 +81,19 @@ btn_reset.onclick = function () {
   playground(currentSize);
 };
 
+let gridEnabled = false;
+btn_grid.onclick = function () {
+  const squares = document.querySelectorAll('.square');
+  if (!gridEnabled) {
+    squares.forEach((square) => {
+      square.classList.add('grid');
+    });
+    gridEnabled = true;
+  } else {
+    squares.forEach((square) => {
+      square.classList.remove('grid');
+    });
+    gridEnabled = false;
+  }
+};
 playground(16); //Initialize
