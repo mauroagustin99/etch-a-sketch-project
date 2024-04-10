@@ -15,11 +15,13 @@ function createSquare() {
 }
 
 function addDrawingListeners(square, isDrawing) {
-  color = colorPicker.addEventListener('change', function (event) {
+  color = 'black'; //Default color
+  colorPicker.addEventListener('change', function (event) {
     color = event.target.value;
+    isDrawing.value = false;
   });
-
   square.addEventListener('mousedown', () => {
+    event.preventDefault(); //Prevent the wrong browser behavior
     isDrawing.value = true;
   });
   square.addEventListener('mouseup', () => {
